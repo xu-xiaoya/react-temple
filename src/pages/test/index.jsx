@@ -1,13 +1,10 @@
 import { Input, Form, Button, Modal } from 'antd'
-import { useState } from 'react'
 
 export default function Test() {
   const [form] = Form.useForm()
-  const [modal, setModal] = useState({})
 
   const onFinish = (values) => {
     console.log(values)
-    setModal({ type: 'diff', values })
   }
   const onReset = () => {
     form.resetFields()
@@ -38,19 +35,6 @@ export default function Test() {
           </Button>
         </Form.Item>
       </Form>
-      {modal.type==='diff' && (
-        <Modal 
-          open
-          title="codeDiff"
-        >
-          {/* <CodeDiff
-            oldString={modal.values.oldString}
-            newString={modal.values.newString}
-            oldTitle={'oldString'}
-            newTitle={'newString'}
-          /> */}
-        </Modal>
-      )}
     </>
   )
 }
